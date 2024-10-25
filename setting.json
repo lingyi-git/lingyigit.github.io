@@ -1,0 +1,46 @@
+{
+    "title": "灵亦の主页",
+    "description": "一个默默无闻的主页",
+    "keywords": "灵亦,个人主页",
+    "author": "灵亦",
+    "logo_img": "./img/icon/avatar.jpg",
+    "logo_text_1": "wuhobin",
+    "logo_text_2": "top",
+    "github": "wuhobin",
+    "qq": "121928274",
+    "email": "121928274@qq.com",
+    "bilibili": "3493116828977764",
+    "facebook": "kitsune",
+    "link_1": [
+        "无",
+        "fa-solid fa-blog",
+        "博客"
+    ],
+    "link_2": [
+        "https://tongji.baidu.com/",
+        "fa-solid fa-cloud",
+        "统计"
+    ],
+    "link_3": [
+        "http://www.wuhobin.top/",
+        "fa-solid fa-compass",
+        "起始页"
+    ],
+    "link_4": [
+        "https://codenote.wuhobin.top",
+        "fa-solid fa-book-bookmark",
+        "编程宝典"
+    ],
+    "link_5": [
+        "http://www.wuhobin.top/",
+        "fa-solid fa-flask",
+        "开发中..."
+    ],
+    "link_6": [
+        "http://www.wuhobin.top/",
+        "fa-solid fa-flask",
+        "敬请期待..."
+    ],
+    "Copyright_text": "Aurora",
+    "beian": "鄂ICP备20006685号"
+}
