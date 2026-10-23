@@ -1,134 +1,185 @@
-English | [Chinese](./README.md)
+Simplified Chinese | English
+
+[!IMPORTANT]
+
+To Strangers
+
+This is a homepage made by a big shot; I took it and modified it a bit [doge]
 
 <p>
-<strong><h2>Auroraの主页</h2></strong>
-Simple little homepage, had enough of the original one and made a new one
+<strong><h2>Lingyi's Homepage</h2></strong>
+A simple little homepage; I got tired of the old one and made a new one
 </p>
 
-![Auroraの主页](https://s2.loli.net/2022/07/14/K5JigfvDoNewtuS.webp)
+/screenshots/main.jpg
 
->The logo font on the home page has been compressed, so if you use a font other than this logo, it will change back to the default font, Here is the [full font](https://file.imsyy.top/font/Pacifico-Regular.ttf)  
+The homepage Logo font has been compressed. If letters other than the site Logo are used, they will revert to the default font. Here is the full font. If it cannot be downloaded, you can replace it with Pacifico-Regular-all.ttf in the font directory.
 
-### Demo
+👀 Demo
 
->Due to CDN caching, you may need `Ctrl` + `F5` to force a browser cache refresh to see the latest results
+Due to CDN caching, viewing the latest effect may require Ctrl + F5 to force refresh the browser cache
 
-- [Auroraの主页](http://www.wuhobin.top)
+· Lingyi's Homepage
 
+🎉 Features
 
-### Functions
+· Loading animation
+· Site introduction
+· Hitokoto quote
+· Date and time
+· Real-time weather
+· Time progress bar
+· Music player
+· Mobile adaptation
 
-- [x] Loading animation
-- [x] Site description
-- [x] Hitokoto
-- [x] Date and time
-- [x] Live weather
-- [x] Time progress bar
-- [x] Music player
-- [x] Mobile adaptation
+⚙️ Automatic Deployment
 
-* [ ] Remove jQuery dependency
-* [ ] VUE refactoring
+If you encounter errors in the build environment or packaging process, you can use GitHub Actions for automatic building
 
-### Weather
+· After successfully forking the repository, go to the Actions page. If this is your first time enabling it, the prompt below will appear; click to enable
+  /screenshots/step1.jpg
+· Then any modification in the repository will trigger the workflow. After the workflow completes, a downloadable archive will be generated below; these are the built static files, which you can upload to your server yourself
+  /screenshots/step2.jpg
 
-Because the original weather API is unstable, the weather API has been replaced. Now you need to go to the following website to obtain the key  
+⚙️ Manual Deployment
 
-- to [ROLL] (https://www.mxnzp.com/doc/list) for app_id and app_secret, used to capture the city  
+· Install node.js environment
+  node > 16.16.0
+  npm > 8.15.0
+· Then run the cmd terminal as administrator, and cd to the project root directory
+· Enter the following in the terminal:
 
-- to [and wind weather] (https://dev.qweather.com/) to obtain the key, is used to get the weather information  
+```bash
+# Install pnpm
+npm install -g pnpm
 
-It can also be replaced by other methods
+# Install dependencies
+pnpm install
 
-<!-- ### Configuration
+# Preview
+pnpm dev
 
-This project uses `json` file to configure the site content, the configuration is not affected by version updates, you can write custom configuration to `setting.json` to change the page content
+# Build
+pnpm build
+```
 
-<details>
-<summary>Configuration instructions</summary>
+After the build completes, static assets will be generated in the dist directory. You can upload the files in the dist folder to your server, or use hosting platforms such as Vercel to import and automatically deploy with one click
+
+⚙️ Docker Deployment
+
+Installation and configuration of Docker will not be explained here; please handle it yourself
+
+```bash
+# Build
+docker build -t home .
+# Run
+docker run -p 12445:12445 -d home
+```
+
+⚙️ Vercel Deployment
+
+Other deployment platforms are roughly the same and are not covered here
+
+1. Click Fork in the upper right corner of this repository to copy this repository to your GitHub account
+2. Copy the /.env.example file and rename it to /.env ( important )
+3. Modify the configuration in /.env as needed
+4. Click Deploy to deploy successfully
+
+Website Links
+
+You can customize website links in src/assets/siteLinks.json (to point to your own website):
 
 ```json
 {
-    "title": "Title of the page",
-    "description": "Short description of the page",
-    "keywords": "Keyword(s)",
-    "author": "author of the page",
-    "logo_img": "Logo image path",
-    "logo_text_1": "Domain Prefix",
-    "logo_text_2": "Domain_suffix",
-    "des_title": [
-        "Hello World !" , // site description title
-        "A small site built in the 21st century, living on the edge of the Internet" // site description content
-    ],
-    "des_title_change": [
-        "Oops !" , //text after clicking on the site's title
-        "Oops, you found this ( click once more to close )" //text after click on site content
-    ],
-    "github": "imsyy", //Github username
-    "qq": "1539250352", //QQ
-    "email": "one@imsyy.top", //email email
-    "telegram": "bottom_user", //Telegram user name
-    "twitter": "iimmsyy", //Twitter username
-    "weather_api": "https://www.yiketianqi.com", //Weather API
-    "link_1": [
-        "https://blog.imsyy.top/", //link_address
-        "fa-solid fa-blog", //icon class name
-        "blog" //link text
-    ],
-    "link_2": [
-        "https://drive.imsyy.top/",
-        "fa-solid fa-cloud",
-        "netdisk"
-    ],
-    "wallpaper_api": [
-        [
-            "picture of the day", //name of wallpaper setting item
-            "https://api.dujin.org/bing/1920.php" //link to wallpaper image
-        ]
-    ],
-    "Copyright_year": "2020", //site start year
-    "Copyright_text": "No name" //Copyright
-}
+  "icon": "Blog",
+  "name": "Blog",
+  "link": "https://blog.imsyy.top/"
+},
 ```
 
-</details> -->
-
-### Music
-
->This project uses the `Aplayer` music player based on `MetingJS` for quick song list customization  
->*Only supported in **Mainland China**, please replace `music.js` with [the following](https://cdn.jsdelivr.net/gh/imsyy/file/js/music/music-other.js) in other regions to enable the music player to work properly
-
-Change the parameters of `music.js` to achieve a custom song list
+The icon for the website link can be added in src/components/Links/index.vue:
 
 ```js
-let server = "netease"; //netease; tencent; kugou; xiami; kuwo; 
-let type = "playlist"; //song; playlist; album;
-let id = "7452421335"; //album ID; song ID; playlist ID;
+// You can go to https://www.xicons.org to choose and import here
+// The fa type is imported here
+import {
+  Link,
+  Blog,
+  CompactDisc,
+  Cloud,
+  Compass,
+  Book,
+  Fire,
+  LaptopCode,
+} from "@vicons/fa";
+
+...
+
+// Website link icons
+const siteIcon = {
+  Blog,
+  Cloud,
+  CompactDisc,
+  Compass,
+  Book,
+  Fire,
+  LaptopCode,
+};
 ```
 
-### Fonts
+Social Links
 
-Now using `HarmonyOS Sans` open source font, using font splitting to improve loading speed
+You can customize social links in src/assets/socialLinks.json.
 
->Because this site's `CDN` has opened anti-leech, **non-site domain name is not accessible**, please change the font import link to the following content, otherwise **custom fonts will be invalid**
->
->`https://cdn.jsdelivr.net/gh/imsyy/file/font/HarmonyOS_Sans/regular.min.css`
+Weather
+
+Weather and location retrieval require the relevant API from Amap Open Platform
+
+· Go to the Amap Open Platform Console to create a Key of type Web Service, and fill the Key into VITE_WEATHER_KEY in .env
+
+You can also replace it with other methods yourself
+
+Music
+
+This project uses the Aplayer music player based on MetingJS, allowing quick customization of playlists
+\*Only supports Mainland China
+
+Please change the song-related parameters in the .env file to customize the playlist
+
+```bash
+# Song API address
+VITE_SONG_API = "https://api-meting.imsyy.top"
+# Song server ( netease-NetEase Cloud Music, tencent-QQ Music )
+VITE_SONG_SERVER = "netease"
+# Play type ( song-song, playlist-playlist, album-album, search-search, artist-artist )
+VITE_SONG_TYPE = "playlist"
+# Play ID
+VITE_SONG_ID = "7452421335"
+```
+
+Font
+
+Currently uses the HarmonyOS Sans open-source font, with font splitting to improve loading speed
+
+Because this site's CDN has hotlink protection enabled, non-site domains cannot access it. Please change the font import link to the following content, otherwise the custom font will fail
+
+https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css
 
 <details>
-<summary>old way</summary>
+<summary>Old method</summary>
 
->As Chinese fonts are introduced in this project, Chinese fonts need to be compressed to improve the loading speed of the page (you can also cancel the use of Chinese fonts)
+Because this project introduces Chinese fonts, Chinese fonts need to be compressed to improve webpage loading speed ( you can also stop using Chinese fonts )
 
-#### Chinese font removal traditional
+Remove Traditional Chinese from Chinese font
 
-- Install `Python 3.7` and `pip`
-- Run `pip install fonttools`
-- Download [sc_unicode.txt](https://gist.githubusercontent.com/imaegoo/d64e5088b723c2e02c40985f55ff12db/raw/5ebd2ce49418c73459a9dfe050483409306a6c1d/sc_unicode.txt)
-- Run `pyftsubset font-name.ttf --unicodes-file=sc_unicode.txt`
+· Install Python 3.7 and pip
+· Run pip install fonttools
+· Download sc_unicode.txt
+· Run pyftsubset FontName.ttf --unicodes-file=sc_unicode.txt
 
-#### fonts further compressed
+Further font compression
 
-- Compile and install ``Google woff2``
+· Compile and install Google woff2
 
 ```bash
 sudo apt-get install -y git g++ make
@@ -137,32 +188,56 @@ cd woff2
 make clean all
 ```
 
-- Compress the font again
+· Compress the font again
 
 ```
-. /woff2_compress . /font_name.ttf
+./woff2_compress ./FontName.ttf
 ```
 
-- Eventually the original font can be slow loaded, **load the compressed font first**
+· Finally, the original font can be lazy-loaded, loading the compressed font first
 
->For more information, please go to [虹墨空间站](https://www.imaegoo.com/2020/chinese-font-compress/) to view the original article
+For details, go to Hongmo Space Station to view the original article
 
 </details>
 
-### Plugins
+Website Icon and Website Background
 
-* [Bootstrap](https://getbootstrap.com/)
-* [iziToast](https://izitoast.marcelodolza.com/)
-* [Font Awesome](https://fontawesome.com/)
-* [jQuery](https://jquery.com/)
-* [Aplayer](https://aplayer.js.org/)
+Website Background
 
-### API
+You can modify the website background in public/images
 
-* [MetingAPI By wuenci](https://api.wuenci.com/meting/api/)
-* [小歪 API](https://api.ixiaowai.cn/)
-* [和风天气](https://dev.qweather.com/)
-* [ROLL](https://www.mxnzp.com/doc/list)
-* [Hitokoto 一言](https://hitokoto.cn/)
+If you want to add more local images as website backgrounds, rename the images in the form background+number and modify src/components/Background/index.vue:
 
-<a title="SSL" target="_blank" href="https://myssl.com/seal/detail?domain=blog.imsyy.top"><img src="https://img.shields.io/badge/MySSL-安全认证-brightgreen"></a>&nbsp;<a title="CDN" target="_blank" href="https://cdnjs.com/"><img src="https://img.shields.io/badge/CDN-Cloudflare-blue"></a>&nbsp;<a title="Copyright" target="_blank" href="https://imsyy.top/"><img src="https://img.shields.io/badge/Copyright%20%C2%A9%202020--2022-%E7%84%A1%E5%90%8D-red"></a>
+```js
+if (type == 0) {
+  // Modify the first number after Math.random() here to the number of images
+  bgUrl.value = `/images/background${Math.floor(Math.random() * 10 + 1)}.webp`;
+}
+```
+
+Website Icon
+
+You can modify the website icon in public/images/icon.
+
+Tech Stack
+
+· Vue
+· Vite
+· Pinia
+· IconPark
+· xicons
+· Aplayer
+
+API
+
+· Han Xiaohan WebAPI
+· Botian API
+· Teacher API
+· Amap Open Platform
+· Hitokoto
+
+Star History
+
+https://api.star-history.com/svg?repos=imsyy/home&type=Date
+
+<a title="SSL" target="_blank" href="https://myssl.com/seal/detail?domain=blog.imsyy.top"><img src="https://img.shields.io/badge/MySSL-Security%20Certification-brightgreen"></a>&nbsp;<a title="CDN" target="_blank" href="https://cdnjs.com/"><img src="https://img.shields.io/badge/CDN-Cloudflare-blue"></a>&nbsp;<a title="Copyright" target="_blank" href="https://imsyy.top/"><img src="https://img.shields.io/badge/Copyright%20%C2%A9%202020--2023-Nameless-red"></a>
